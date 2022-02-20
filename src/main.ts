@@ -1,16 +1,13 @@
 import { BillController } from "./controllers/billController";
 import { UserController } from "./controllers/userController";
 import { GroupController } from "./controllers/groupController";
-import { UserService } from "./services/UserService";
-import { GroupService } from "./services/GroupService";
-import { BillService } from "./services/BillService";
+import { ServiceFactory } from "./services/ServiceFactory";
 
 
-// Implement factory
-
-const userServ = new UserService();
-const groupServ = new GroupService();
-const billServ = new BillService();
+const serviceFactory = new ServiceFactory();
+const userServ = serviceFactory.createService("user");
+const groupServ = serviceFactory.createService("group");
+const billServ = serviceFactory.createService("bill");
 
 const userCon = new UserController(userServ);
 const groupCon = new GroupController(groupServ);
