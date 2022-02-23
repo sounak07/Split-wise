@@ -3,9 +3,9 @@ export class Bill {
     private groupId : number;
     private amount: number;
     private contribution: any = {};
-    private paidBy: any = {};
+    private paidBy: string;
 
-    constructor(id: number, groupId: number, amount: number, contribution: any, paidBy: any) {
+    constructor(id: number, groupId: number, amount: number, contribution: any, paidBy: string) {
         this.id = id,
         this.groupId = groupId;
         this.amount = amount;
@@ -42,15 +42,15 @@ export class Bill {
     }
 
     public setContribution(Contribution: any): void {
-        this.amount = Contribution;
+        this.contribution = Contribution;
     }
 
-    public getPaidBy(): number {
+    public getPaidBy(): string {
         return this.paidBy;
     }
 
-    public setPaidBy(paidBy: any): void {
-        this.amount = paidBy;
+    public setPaidBy(paidBy: string): void {
+        this.paidBy = paidBy;
     }
 
 }
