@@ -19,19 +19,26 @@ const u5 = userCon.addUser("user5", "Stacy");
 const groupCon = new GroupController(groupServ);
 const billController = new BillController(billServ);
 
-
+const contri = { "user1": 100, "user2": 100, "user3": 100, "user4": 100, "user5": 100 };
 
 
 const members = [u1,u2,u3,u4,u5];
 
-const contri = { "user1": 200, "user2": 100, "user3": 50, "user4": 50, "user5": 100 };
-// const paidBy = "user2";
+const paidBy = "user2";
 const paidBy2 = "user1";
 
 const grp = groupCon.addGroup(11, members);
 
-// billController.addBill(111, grp.getId(), 500, contri, paidBy);
 billController.addBill(112, grp.getId(), 500, contri, paidBy2);
 
+console.log(billController.getUserBalance("user1"));
 
-console.log(billController.getUserBalance("user2"));
+const contri2 = { "user1": 100, "user2": 100, "user3": 100, "user4": 100, "user5": 100 };
+
+billController.addBill(111, grp.getId(), 500, contri2, paidBy);
+
+console.log(billController.getUserBalance("user3"));
+
+
+
+

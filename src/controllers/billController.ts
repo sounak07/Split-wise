@@ -15,11 +15,11 @@ export class BillController {
 
         for(const paidTo in contribution)
         {
-            console.log("1", paidBy, paidTo,this.BillService.getTransactionByUser(paidBy, paidTo)?.amount);
+            // console.log("1", paidBy, paidTo,this.BillService.getTransactionByUser(paidBy, paidTo)?.amount);
             this.BillService.setBalanceSheetByUser(paidBy, paidTo, (this.BillService.getTransactionByUser(paidBy, paidTo)?.amount || 0)  + contribution[paidTo]);
-            console.log("2", paidBy, paidTo,(this.BillService.getTransactionByUser(paidBy, paidTo)?.amount || 0) , contribution[paidTo]);
+            // console.log("2", paidBy, paidTo,(this.BillService.getTransactionByUser(paidBy, paidTo)?.amount || 0) , contribution[paidTo]);
             this.BillService.setBalanceSheetByUser(paidBy, paidBy, (this.BillService.getTransactionByUser(paidTo, paidBy)?.amount || 0) - contribution[paidTo]);
-            console.log("3", paidTo, paidBy, (this.BillService.getTransactionByUser(paidTo, paidBy)?.amount || 0) , contribution[paidTo]);
+            // console.log("3", paidTo, paidBy, (this.BillService.getTransactionByUser(paidTo, paidBy)?.amount || 0) , contribution[paidTo]);
 
             console.log(this.BillService.getBalanceSheet());
         }
@@ -30,7 +30,7 @@ export class BillController {
         
         const balanceSheet: Array<Transaction> = this.BillService.getBalanceSheetByUser(userId);
 
-        console.log(this.BillService.getBalanceSheet());
+        // console.log(this.BillService.getBalanceSheet());
 
         for(const i in balanceSheet){
             if (balanceSheet[i].userId == userId)
