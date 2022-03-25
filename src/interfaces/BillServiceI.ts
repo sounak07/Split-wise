@@ -1,4 +1,5 @@
 import { Bill } from "../models/bill";
+import { User } from "../models/user";
 import { BalanceSheet, Transaction } from "../types";
 
 export interface BillServiceI {
@@ -7,8 +8,8 @@ export interface BillServiceI {
     getBills(): any;
     getBalanceSheet(): BalanceSheet;
     setBalanceSheet(balanceSheet: BalanceSheet): void;
-    getBalanceSheetByUser(userId: string): Transaction[];
-    setBalanceSheetByUser(paidBy: string, paidTo: string, amount: number): void;
-    getTransactionByUser(paidBy: string, paidTo: string): Transaction;
+    getBalanceSheetByUser(user: User): Transaction[];
+    setBalanceSheetByUser(paidBy: User, paidTo: User, amount: number): void;
+    getUserBalance(paidBy: User, paidTo: User): number
 }
 

@@ -1,6 +1,8 @@
+import { User } from "../models/user";
+
 export interface Transaction {
-    userId: string,
+    giver: User,
     amount: number
 }
 
-export type BalanceSheet = Map<string, Transaction[]>
+export type BalanceSheet = Map<User, Array<Transaction>>

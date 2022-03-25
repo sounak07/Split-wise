@@ -14,4 +14,8 @@ export class UserController {
         const user = this.userService.addUser(name,id);
         return user;
     }
+
+    public getUserById(userId: string): User {
+        return this.userService.getUserById(userId);
+    }
 }

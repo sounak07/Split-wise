@@ -10,4 +10,8 @@ export class UserService implements UserServiceI {
         this.users[id] = user;
         return user;
     }
+
+    public getUserById(userId: string): User {
+        return this.users[userId];
+    }
 }

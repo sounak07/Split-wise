@@ -29,15 +29,15 @@ const paidBy2 = "user1";
 
 const grp = groupCon.addGroup(11, members);
 
-billController.addBill(112, grp.getId(), 500, contri, paidBy2);
+billController.addBill(112, grp.getId(), 500, contri, paidBy2, userCon);
 
-console.log(billController.getUserBalance("user1"));
+console.log(billController.getUserBalance(u2));
 
-const contri2 = { "user1": 100, "user2": 100, "user3": 100, "user4": 100, "user5": 100 };
+const contri2 = { "user1": 200, "user2": 50, "user3": 50, "user4": 100, "user5": 100 };
 
-billController.addBill(111, grp.getId(), 500, contri2, paidBy);
+billController.addBill(111, grp.getId(), 500, contri2, paidBy, userCon);
 
-console.log(billController.getUserBalance("user3"));
+console.log(billController.getUserBalance(u2));
 
 
 
